@@ -66,7 +66,7 @@ A nodejs restful api with jwt authentication
 
 -   DELETE A SINGLE POST BY ID
 
-    curl -X DELETE -H -H "auth-token: ${token here}"
+    curl -X DELETE -H "auth-token: ${token here}"
     http://localhost:5000/posts/post_id
 
 -   UPDATE SPECIFIC POST PROPERTY (TITLE)
@@ -90,5 +90,6 @@ A nodejs restful api with jwt authentication
     * git clone https://github.com/lumungep12/Blog-RestApi.git
     * npm i
     * Create Mongodb Database and link to to your applcation
+    * Create a secret and save it to .env -> .gitignore
     * npm start
     * Start making Requests

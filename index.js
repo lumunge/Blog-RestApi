@@ -17,8 +17,10 @@ app.use("/posts", PostsRoutes);
 app.use("/user", AuthRoutes);
 
 // DB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, () =>
-	console.log("Db Connection was Successfull")
+mongoose.connect(
+	process.env.MONGO_URI,
+	{ useNewUrlParser: true, useUnifiedTopology: true },
+	() => console.log("Db Connection was Successfull")
 );
 
 app.listen(5000);

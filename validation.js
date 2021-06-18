@@ -11,8 +11,6 @@ export const ValidateRegistration = (user) => {
 	return schema.validate(user);
 };
 
-// export default ValidateRegistration;
-
 // login validaion
 export const ValidateLogin = (user) => {
 	const schema = Joi.object({
@@ -23,4 +21,13 @@ export const ValidateLogin = (user) => {
 	return schema.validate(user);
 };
 
-// export default ValidateLogin;
+// validate posts
+export const ValidatePosts = (post) => {
+	const schema = Joi.object({
+		title: Joi.string().min(5).required(),
+		description: Joi.string().min(100).required(),
+		image: Joi.string().required(),
+	}).options({ abortEarly: false });
+
+	return schema.validate(post);
+};

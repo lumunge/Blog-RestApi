@@ -1,6 +1,7 @@
 import express from "express";
 import Post from "../Models/Post.js";
 import verify from "./verifyToken.js";
+import { ValidatePosts } from "../validation.js";
 
 const router = express.Router();
 
@@ -26,6 +27,10 @@ router.get("/:id", async (req, res) => {
 
 // add posts for logged in users
 router.post("/", verify, async (req, res) => {
+	// validate data
+	const { error } = ValidatePosts(req.body);
+	if (error) return res.status(400).send(error.details[0].message);
+
 	const post = new Post({
 		title: req.body.title,
 		description: req.body.description,

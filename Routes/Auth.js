@@ -40,7 +40,7 @@ router.post("/register", async (req, res) => {
 // Login
 router.post("/login", async (req, res) => {
 	// validate data from user
-	const { error } = ValidateRegistration(req.body);
+	const { error } = ValidateLogin(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
 	// check if username exists

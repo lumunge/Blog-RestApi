@@ -15,10 +15,17 @@ A nodejs restful api with jwt authentication
 
     * User Registration
     * User login
-    * Create Blog Posts -> Authnticated User
-    * Delete Blog Posts -> Authnticated User
+    * Create Blog Posts -> Authenticated User
+    * Delete Blog Posts -> Authenticated User
     * Edit Blog Posts -> Authenticated User
     * Read Blog Posts -> All Users
+
+### API ENDPOINTS
+
+    * Posts Route `https://flannel-beaver-23145.herokuapp.com/posts`
+    * Get all users `https://flannel-beaver-23145.herokuapp.com/users` --> Responds with list of users
+    * User Registration `https://flannel-beaver-23145.herokuapp.com/users/register`
+    * User Login `https://flannel-beaver-23145.herokuapp.com/users/login` --> respond with auth-token to be used for create, delete and edit operations
 
 ### TESTS WITH CURL
 

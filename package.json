@@ -2,10 +2,17 @@
 	"name": "rest-api",
 	"version": "1.0.0",
 	"description": "",
+<<<<<<< HEAD
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
 		"start": "node server.js"
+=======
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "nodemon index.js"
+>>>>>>> dc2f56388e6a8682c99267e8b52d21113552e8fb
 	},
 	"keywords": [],
 	"author": "",
@@ -22,8 +29,11 @@
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.7"
+<<<<<<< HEAD
 	},
 	"engines": {
 		"node": "14.15.0"
+=======
+>>>>>>> dc2f56388e6a8682c99267e8b52d21113552e8fb
 	}
 }

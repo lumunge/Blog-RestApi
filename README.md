@@ -15,7 +15,6 @@ A nodejs restful api with jwt authentication
 
     * User Registration
     * User login
-<<<<<<< HEAD
     * Create Blog Posts -> Authenticated User
     * Delete Blog Posts -> Authenticated User
     * Edit Blog Posts -> Authenticated User
@@ -28,13 +27,6 @@ A nodejs restful api with jwt authentication
     * User Registration `https://flannel-beaver-23145.herokuapp.com/users/register`
     * User Login `https://flannel-beaver-23145.herokuapp.com/users/login` --> respond with auth-token to be used for create, delete and edit operations
 
-=======
-    * Create Blog Posts -> Authnticated User
-    * Delete Blog Posts -> Authnticated User
-    * Edit Blog Posts -> Authenticated User
-    * Read Blog Posts -> All Users
-
->>>>>>> dc2f56388e6a8682c99267e8b52d21113552e8fb
 ### TESTS WITH CURL
 
 -   CREATE A NEW USER
@@ -43,11 +35,7 @@ A nodejs restful api with jwt authentication
 
     curl -X POST -H "Content-Type: application/json" \
     -d '{"username":"uzer1","email":"uzer1@yahoo.com", "password": "123456"}' \
-<<<<<<< HEAD
     http://localhost:5000/user/registerhttps://flannel-beaver-23145.herokuapp.com/users
-=======
-    http://localhost:5000/user/register
->>>>>>> dc2f56388e6a8682c99267e8b52d21113552e8fb
 
     -   Response
 

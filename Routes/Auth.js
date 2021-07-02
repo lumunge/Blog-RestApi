@@ -4,8 +4,6 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv/config";
 import { ValidateRegistration, ValidateLogin } from "../validation.js";
-<<<<<<< HEAD
-
 const router = express.Router();
 
 // get all users
@@ -18,11 +16,9 @@ router.get("/", async (req, res) => {
 	}
 });
 
-=======
 const router = express.Router();
 
 // Registration
->>>>>>> dc2f56388e6a8682c99267e8b52d21113552e8fb
 router.post("/register", async (req, res) => {
 	// validate data from user
 	const { error } = ValidateRegistration(req.body);

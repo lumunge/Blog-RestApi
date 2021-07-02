@@ -35,7 +35,7 @@ A nodejs restful api with jwt authentication
 
     curl -X POST -H "Content-Type: application/json" \
     -d '{"username":"uzer1","email":"uzer1@yahoo.com", "password": "123456"}' \
-    http://localhost:5000/user/register
+    http://localhost:5000/user/registerhttps://flannel-beaver-23145.herokuapp.com/users
 
     -   Response
 

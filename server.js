@@ -14,7 +14,7 @@ app.use(BodyParser.json());
 
 // Routes
 app.use("/posts", PostsRoutes);
-app.use("/user", AuthRoutes);
+app.use("/users", AuthRoutes);
 
 // DB connection
 mongoose.connect(

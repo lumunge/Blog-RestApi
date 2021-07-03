@@ -23,8 +23,8 @@ A nodejs restful api with jwt authentication
 
 ### API ENDPOINTS
 
-    * Posts Route --> https://aqueous-brushlands-93580.herokuapp.com/posts
-    * Get all users --> `https://flannel-beaver-23145.herokuapp.com/users`
+    - Posts Route --> https://aqueous-brushlands-93580.herokuapp.com/posts
+    - Get all users --> `https://flannel-beaver-23145.herokuapp.com/users`
     * User Registration --> `https://flannel-beaver-23145.herokuapp.com/users/register`
     * User Login --> `https://flannel-beaver-23145.herokuapp.com/users/login`
 

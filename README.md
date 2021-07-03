@@ -23,9 +23,9 @@ A nodejs restful api with jwt authentication
 ### API ENDPOINTS
 
     * Posts Route `https://flannel-beaver-23145.herokuapp.com/posts`
-    * Get all users `https://flannel-beaver-23145.herokuapp.com/users` --> Responds with list of users
+    * Get all users `https://flannel-beaver-23145.herokuapp.com/users`
     * User Registration `https://flannel-beaver-23145.herokuapp.com/users/register`
-    * User Login `https://flannel-beaver-23145.herokuapp.com/users/login` --> respond with auth-token to be used for create, delete and edit operations
+    * User Login `https://flannel-beaver-23145.herokuapp.com/users/login`
 
 ### TESTS WITH CURL
 

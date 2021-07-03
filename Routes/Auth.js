@@ -16,8 +16,6 @@ router.get("/", async (req, res) => {
 	}
 });
 
-const router = express.Router();
-
 // Registration
 router.post("/register", async (req, res) => {
 	// validate data from user

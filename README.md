@@ -24,8 +24,9 @@ A nodejs restful api with jwt authentication
 ### API ENDPOINTS
 
 -   Posts Route --> `https://aqueous-brushlands-93580.herokuapp.com/posts`
--   Registration --> `https://flannel-beaver-23145.herokuapp.com/users/register`
--   User Login --> `https://flannel-beaver-23145.herokuapp.com/users/login`
+-   Registration -->
+    `https://aqueous-brushlands-93580.herokuapp.com/users/register`
+-   User Login --> `https://aqueous-brushlands-93580.herokuapp.com/users/login`
 
 ### TESTS WITH CURL
 
@@ -33,9 +34,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-    curl -X POST -H "Content-Type: application/json" \
-    -d '{"username":"uzer1","email":"uzer1@yahoo.com", "password": "123456"}' \
-    http://localhost:5000/user/registerhttps://flannel-beaver-23145.herokuapp.com/users
+    `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34","email":"uzer34@yahoo.com", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/register`
 
     -   Response
 

@@ -7,16 +7,6 @@ import dotenv from "dotenv/config";
 import { ValidateRegistration, ValidateLogin } from "../validation.js";
 const router = express.Router();
 
-// get all users
-router.get("/", verify, async (req, res) => {
-	try {
-		const users = await User.find();
-		res.send({ users });
-	} catch (error) {
-		res.status(400).send(error);
-	}
-});
-
 // Registration
 router.post("/register", async (req, res) => {
 	// validate data from user

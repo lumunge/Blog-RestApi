@@ -8,8 +8,9 @@ A nodejs restful api with jwt authentication
 
     * Express
     * Nodejs
-    * MongoDB
+    * MongoDB Atlas
     * JWT
+    * Heroku
 
 ### FEATURES
 

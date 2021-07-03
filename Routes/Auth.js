@@ -2,12 +2,13 @@ import express from "express";
 import User from "../Models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import verify from "./verifyToken";
 import dotenv from "dotenv/config";
 import { ValidateRegistration, ValidateLogin } from "../validation.js";
 const router = express.Router();
 
 // get all users
-router.get("/", async (req, res) => {
+router.get("/", verify, async (req, res) => {
 	try {
 		const users = await User.find();
 		res.send({ users });

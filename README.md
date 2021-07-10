@@ -82,7 +82,7 @@ A nodejs restful api with jwt authentication
 
 ---
 
-        UNDER DEVELOPMENT
+        UNDER DEVELOPMENT FROM HERE
 
 ---
 

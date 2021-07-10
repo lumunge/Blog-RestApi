@@ -38,37 +38,41 @@ A nodejs restful api with jwt authentication
 
     -   Response
 
-    {"user":"60ca05b8f1ea1117a6e0ef18"}
+    {"user":"user_id"}
 
 -   LOGIN NEW USER
 
     -   Request
 
-    curl -X POST -H "Content-Type: application/json" \
-    -d '{"username":"uzer1", "password": "123456"}' \
-    http://localhost:5000/user/login
+    `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/login`
 
     -   Response
 
-    => Responds with a jwt token to be user for CREATE, UPDATE and DELETE posts.
+    => jwt token ---> {eyJhbGciOiJIUzI1NiIsIn...}
 
 -   GET ALL POSTS
 
-    curl -v http://localhost:5000/posts
+    `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts`
 
 -   CREATE A NEW POST
 
-    curl -X POST -H "Content-Type: application/json" -H "auth-token: ${token
-    here}" \
-     -d '{"title":"Post Request","description":"testing restful api post
-    request", "image":
-    "https://images.unsplash.com/photo-1592323360850-e317605f0526?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80"}'
-    \
-     http://localhost:5000/posts
+-   Request
+
+    `curl -X POST -H "Content-Type: application/json" -H 'auth-token: {auth-token from login without curly braces}' \ -d '{"title": "test title", "description": "description must be more than 100 chars", "image":"image.png"}' \ https://aqueous-brushlands-93580.herokuapp.com/posts`
+
+-   Response
+
+    Responds with the post entered if the request was successful
 
 -   GET POST BY ID
 
-    curl -v http://localhost:5000/posts/${post_id}
+-   Request
+
+    `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts/${post_id_here}`
+
+-   Response
+
+    Responds with the post details
 
 -   DELETE A SINGLE POST BY ID
 
@@ -91,7 +95,7 @@ A nodejs restful api with jwt authentication
     \
     http://localhost:5000/posts/post_id
 
-### SETUP
+### SETUP LOCALLY
 
     * git clone https://github.com/lumungep12/Blog-RestApi.git
     * npm i

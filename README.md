@@ -97,7 +97,7 @@ A nodejs restful api with jwt authentication
 
 ### SETUP LOCALLY
 
-    * git clone https://github.com/lumungep12/Blog-RestApi.git
+    * git clone https://github.com/lumunge/Blog-RestApi.git
     * npm i
     * Create Mongodb Database and link to to your applcation
     * Create a secret and save it to .env -> .gitignore

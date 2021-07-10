@@ -34,45 +34,51 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-    `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34","email":"uzer34@yahoo.com", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/register`
+        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34","email":"uzer34@yahoo.com", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/register`
 
     -   Response
 
-    {"user":"user_id"}
+        {"user":"user_id"}
 
 -   LOGIN NEW USER
 
     -   Request
 
-    `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/login`
+        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/login`
 
     -   Response
 
-    => jwt token ---> {eyJhbGciOiJIUzI1NiIsIn...}
+        jwt token ---> {eyJhbGciOiJIUzI1NiIsIn...}
 
 -   GET ALL POSTS
 
-    `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts`
+    -   Request
+
+        `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts`
+
+    -   Response
+
+        All posts in json format
 
 -   CREATE A NEW POST
 
--   Request
+    -   Request
 
-    `curl -X POST -H "Content-Type: application/json" -H 'auth-token: {auth-token from login without curly braces}' \ -d '{"title": "test title", "description": "description must be more than 100 chars", "image":"image.png"}' \ https://aqueous-brushlands-93580.herokuapp.com/posts`
+        `curl -X POST -H "Content-Type: application/json" -H 'auth-token: {auth-token from login without curly braces}' \ -d '{"title": "test title", "description": "description must be more than 100 chars", "image":"image.png"}' \ https://aqueous-brushlands-93580.herokuapp.com/posts`
 
--   Response
+    -   Response
 
-    Responds with the post entered if the request was successful
+        Responds with the post entered if the request was successful
 
 -   GET POST BY ID
 
--   Request
+    -   Request
 
-    `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts/${post_id_here}`
+        `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts/${post_id_here}`
 
--   Response
+    -   Response
 
-    Responds with the post details
+        Responds with the post details
 
 -   DELETE A SINGLE POST BY ID
 

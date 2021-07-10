@@ -80,6 +80,12 @@ A nodejs restful api with jwt authentication
 
         Responds with the post details
 
+---
+
+        UNDER DEVELOPMENT
+
+---
+
 -   DELETE A SINGLE POST BY ID
 
     curl -X DELETE -H "auth-token: ${token here}"

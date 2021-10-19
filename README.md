@@ -7,10 +7,11 @@ A nodejs restful api with jwt authentication
 ### TECHNOLOGIES USED:
 
     * Express
-    * Nodejs
-    * MongoDB Atlas
+    * Node.js
+    * MongoDB
     * JWT
     * Heroku
+    * Redis Cache
 
 ### FEATURES
 

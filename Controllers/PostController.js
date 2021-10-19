@@ -2,6 +2,7 @@ import PostModel from "../Models/PostModel.js";
 import { ValidatePosts } from "../validation.js";
 import redis from "redis";
 
+// redis config
 const redisClient = redis.createClient();
 const EXPIRATION = 3600; // 1hr
 

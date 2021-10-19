@@ -113,5 +113,7 @@ A nodejs restful api with jwt authentication
     * npm i
     * Create Mongodb Database and link to to your applcation
     * Create a secret and save it to .env -> .gitignore
+    * start up redis
+        -> redis-server
     * npm start
     * Start making Requests

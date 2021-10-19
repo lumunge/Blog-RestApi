@@ -1,10 +1,29 @@
 import PostModel from "../Models/PostModel.js";
 import { ValidatePosts } from "../validation.js";
+import redis from "redis";
+
+const redisClient = redis.createClient();
+const EXPIRATION = 3600; // 1hr
+
+const getSetCache = (key, callback) => {
+	return new Promise((resolve, reject) => {
+		redisClient.get(key, async (error, data) => {
+			if (error) return reject(error);
+			if (data != null) return resolve(JSON.parse(data));
+			const fetchedData = await callback();
+			redisClient.SETEX(key, EXPIRATION, JSON.stringify(fetchedData));
+			resolve(fetchedData);
+		});
+	});
+};
 
 // get all posts by all users
 export const getPosts = async (req, res) => {
 	try {
-		const posts = await PostModel.find();
+		const posts = await getSetCache("posts", async () => {
+			const data = await PostModel.find();
+			return data;
+		});
 		res.status(200).json(posts);
 	} catch (error) {
 		res.json({ message: error });
@@ -14,7 +33,10 @@ export const getPosts = async (req, res) => {
 //get single post, all users
 export const getPost = async (req, res) => {
 	try {
-		const post = await PostModel.findById(req.params.id);
+		const post = await getSetCache(`post=${req.params.id}`, async () => {
+			const data = await PostModel.findById(req.params.id);
+			return data;
+		});
 		res.status(200).json(post);
 	} catch (error) {
 		res.json({ message: error });

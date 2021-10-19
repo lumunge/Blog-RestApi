@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import PostModel from "../Models/PostModel.js";
 import { ValidatePosts } from "../validation.js";
 
@@ -28,7 +27,7 @@ export const createPost = async (req, res) => {
 	const { error } = ValidatePosts(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
-	const post = new Post({
+	const post = new PostModel({
 		title: req.body.title,
 		description: req.body.description,
 		image: req.body.image,
@@ -46,7 +45,7 @@ export const createPost = async (req, res) => {
 // delete post for logged in users
 export const deletePost = async (req, res) => {
 	try {
-		const DeletedPost = await Post.remove({ _id: req.params.id });
+		const DeletedPost = await PostModel.remove({ _id: req.params.id });
 		res.status(200).json(DeletedPost);
 	} catch (error) {
 		res.json({ message: error });
@@ -56,7 +55,7 @@ export const deletePost = async (req, res) => {
 // update title for logged in users
 export const updateTitle = async (req, res) => {
 	try {
-		const UpdatedTitle = await Post.updateOne(
+		const UpdatedTitle = await PostModel.updateOne(
 			{ _id: req.params.id },
 			{ $set: { title: req.body.title } }
 		);
@@ -69,7 +68,7 @@ export const updateTitle = async (req, res) => {
 // update whole post for logged in users
 export const updatePost = async (req, res) => {
 	try {
-		const WholeUpdatedPost = await Post.findOneAndUpdate(
+		const WholeUpdatedPost = await PostModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{
 				$set: {

@@ -1,50 +1,49 @@
-import express from "express";
-import User from "../Models/User.js";
+import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv/config";
+import UserModel from "../Models/UserModel.js";
 import { ValidateRegistration, ValidateLogin } from "../validation.js";
-const router = express.Router();
 
-// Registration
-router.post("/register", async (req, res) => {
+export const signup = async (req, res) => {
 	// validate data from user
 	const { error } = ValidateRegistration(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
 	//check if user is in database
-	const emailExists = await User.findOne({ email: req.body.email });
+	const emailExists = await UserModel.findOne({ email: req.body.email });
 	if (emailExists) return res.status(400).send("Email already exists");
 
 	// check if username exists
-	const usernameExists = await User.findOne({ username: req.body.username });
+	const usernameExists = await UserModel.findOne({
+		username: req.body.username,
+	});
 	if (usernameExists) return res.status(400).send("Username has been taken");
 
 	//hash password
 	const salt = await bcrypt.genSalt(10);
 	const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-	const user = new User({
+	const user = new UserModel({
 		username: req.body.username,
 		email: req.body.email,
 		password: hashedPassword,
 	});
 	try {
 		const savedUser = await user.save();
-		res.send({ user: user.id });
+		res.status(200).send({ user: user.id });
 	} catch (error) {
 		res.status(400).send(error);
 	}
-});
+};
 
-// Login
-router.post("/login", async (req, res) => {
+export const signin = async (req, res) => {
 	// validate data from user
 	const { error } = ValidateLogin(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
 	// check if username exists
-	const user = await User.findOne({ username: req.body.username });
+	const user = await UserModel.findOne({ username: req.body.username });
 	if (!user) return res.status(400).send("Username or password is invalid");
 
 	// check if password is valid
@@ -55,6 +54,4 @@ router.post("/login", async (req, res) => {
 	const token = jwt.sign({ _id: user._id }, process.env.SECRET);
 
 	res.header("auth_token", token).send(token);
-});
-
-export default router;
+};

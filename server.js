@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv/config";
-import PostsRoutes from "./Routes/Posts.js";
-import AuthRoutes from "./Routes/Auth.js";
+import PostsRoutes from "./Routes/PostRoutes.js";
+import AuthRoutes from "./Routes/AuthRoutes.js";
 import BodyParser from "body-parser";
 import cors from "cors";
 
@@ -18,7 +18,7 @@ app.use("/users", AuthRoutes);
 
 // DB connection
 mongoose.connect(
-	`mongodb+srv://root:${process.env.MONGO_PASS}@cluster0.7udfn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+	process.env.MONGO_URI,
 	{ useNewUrlParser: true, useUnifiedTopology: true },
 	() => console.log("Db Connection was Successfull")
 );

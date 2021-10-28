@@ -24,10 +24,9 @@ A nodejs restful api with jwt authentication
 
 ### API ENDPOINTS
 
--   Posts Route --> `https://aqueous-brushlands-93580.herokuapp.com/posts`
--   Registration -->
-    `https://aqueous-brushlands-93580.herokuapp.com/users/register`
--   User Login --> `https://aqueous-brushlands-93580.herokuapp.com/users/login`
+-   Posts Route --> `http://localhost:5000/posts`
+-   Registration --> `http://localhost:5000/users/register`
+-   User Login --> `http://localhost:5000/users/login`
 
 ### TESTS WITH CURL
 
@@ -35,7 +34,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34","email":"uzer34@yahoo.com", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/register`
+        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34","email":"uzer34@yahoo.com", "password": "123456"}' \ http://localhost:5000/users/register`
 
     -   Response
 
@@ -45,7 +44,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34", "password": "123456"}' \ https://aqueous-brushlands-93580.herokuapp.com/users/login`
+        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34", "password": "123456"}' \ http://localhost:5000/users/login`
 
     -   Response
 
@@ -55,7 +54,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts`
+        `curl -v https://localhost:5000/posts`
 
     -   Response
 
@@ -65,7 +64,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -X POST -H "Content-Type: application/json" -H 'auth-token: {auth-token from login without curly braces}' \ -d '{"title": "test title", "description": "description must be more than 100 chars", "image":"image.png"}' \ https://aqueous-brushlands-93580.herokuapp.com/posts`
+        `curl -X POST -H "Content-Type: application/json" -H 'auth-token: {auth-token from login without curly braces}' \ -d '{"title": "test title", "description": "description must be more than 100 chars", "image":"image.png"}' \ http://localhost:5000/posts`
 
     -   Response
 
@@ -75,7 +74,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -v https://aqueous-brushlands-93580.herokuapp.com/posts/${post_id_here}`
+        `curl -v https://localhost:5000/posts/${post_id_here}`
 
     -   Response
 

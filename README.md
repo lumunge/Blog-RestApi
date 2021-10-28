@@ -34,12 +34,12 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-```curl
-curl -X POST -H "Content-Type: application/json" \
-    -d '{"username":"user304","email":"uzer304@yahoo.com", "password": "123456"}' \
-    http://localhost:5000/users/signup
+    ```curl
+    curl -X POST -H "Content-Type: application/json" \
+        -d '{"username":"user304","email":"uzer304@yahoo.com", "password": "123456"}' \
+        http://localhost:5000/users/signup
 
-```
+    ```
 
     -   Response
 
@@ -49,11 +49,11 @@ curl -X POST -H "Content-Type: application/json" \
 
     -   Request
 
-```curl
-curl -X POST -H "Content-Type: application/json" \
-    -d '{"username":"user304", "password": "123456"}' \
-    http://localhost:5000/users/signin
-```
+    ```curl
+    curl -X POST -H "Content-Type: application/json" \
+        -d '{"username":"user304", "password": "123456"}' \
+        http://localhost:5000/users/signin
+    ```
 
     -   Response
 
@@ -75,7 +75,13 @@ curl -X POST -H "Content-Type: application/json" \
 
     -   Request
 
-        `curl -X POST -H "Content-Type: application/json" -H 'auth-token: {auth-token from login without curly braces}' \ -d '{"title": "test title", "description": "description must be more than 100 chars", "image":"image.png"}' \ http://localhost:5000/posts`
+        ```curl
+        curl -X POST -H "Content-Type: application/json" 'auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTdhOTBhYjczNGQ0NjBmYzEzODkzZTMiLCJpYXQiOjE2MzU0MjM3Njd9.TyP1HFUGxO6BC7tskBWFS7zIDDDSXQ9TgVimNELmT9Q' \
+            -d '{"title": "test title",
+            "description": "description must be more than 100 chars description must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 charsdescription must be more than 100 chars",
+            "image":"image.png"}' \
+            http://localhost:5000/posts
+        ```
 
     -   Response
 
@@ -85,38 +91,36 @@ curl -X POST -H "Content-Type: application/json" \
 
     -   Request
 
-        `curl -v http://localhost:5000/posts/${post_id_here}`
+        ```curl
+        curl -v http://localhost:5000/posts/${post_id_here}
+        ```
 
     -   Response
 
         Responds with the post details
 
----
-
-        UNDER DEVELOPMENT FROM HERE
-
----
-
 -   DELETE A SINGLE POST BY ID
 
-    curl -X DELETE -H "auth-token: ${token here}"
-    http://localhost:5000/posts/post_id
+    ```curl
+    curl -X DELETE -H "auth-token: {token here without braces}"
+    http://localhost:5000/posts/60e967f014a04b001503b969
+    ```
 
 -   UPDATE SPECIFIC POST PROPERTY (TITLE)
 
-    curl -X PATCH -H "Content-Type: application/json" -H "auth-token: ${token
-    here}" \
-    -d '{"title": "The title was changed here"}' \
-    http://localhost:5000/posts/post_id
+    ```curl
+    curl -X PATCH -H "Content-Type: application/json" -H "auth-token: {token here without braces}" \
+        -d '{"title": "The title was changed here"}' \
+        http://localhost:5000/posts/post_id
+    ```
 
 -   UPDATE THE WHOLE POST
 
-    curl -X PUT -H "Content-Type: application/json" -H "auth-token: ${token
-    here}" \
-    -d '{"title": "The title was changed here", "description": "The description was
-    also changed", "image": "http://images.unsplash.com/photo-1592323360850-e317605f0526?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80"}'
-    \
-    http://localhost:5000/posts/post_id
+    ```curl
+    curl -X PUT -H "Content-Type: application/json" -H "auth-token: ${token here without braces}" \
+        -d '{"title": "updated title "description": "updated description", "image": "new image here"}' \
+        http://localhost:5000/posts/post_id
+    ```
 
 ### SETUP LOCALLY
 

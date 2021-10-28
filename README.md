@@ -34,7 +34,12 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34","email":"uzer34@yahoo.com", "password": "123456"}' \ http://localhost:5000/users/register`
+```curl
+curl -X POST -H "Content-Type: application/json" \
+    -d '{"username":"user304","email":"uzer304@yahoo.com", "password": "123456"}' \
+    http://localhost:5000/users/signup
+
+```
 
     -   Response
 
@@ -44,7 +49,11 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -X POST -H "Content-Type: application/json" \ -d '{"username":"user34", "password": "123456"}' \ http://localhost:5000/users/login`
+```curl
+curl -X POST -H "Content-Type: application/json" \
+    -d '{"username":"user304", "password": "123456"}' \
+    http://localhost:5000/users/signin
+```
 
     -   Response
 
@@ -54,7 +63,9 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -v https://localhost:5000/posts`
+        ```curl
+        curl -v http://localhost:5000/posts
+        ```
 
     -   Response
 
@@ -74,7 +85,7 @@ A nodejs restful api with jwt authentication
 
     -   Request
 
-        `curl -v https://localhost:5000/posts/${post_id_here}`
+        `curl -v http://localhost:5000/posts/${post_id_here}`
 
     -   Response
 
@@ -103,7 +114,7 @@ A nodejs restful api with jwt authentication
     curl -X PUT -H "Content-Type: application/json" -H "auth-token: ${token
     here}" \
     -d '{"title": "The title was changed here", "description": "The description was
-    also changed", "image": "https://images.unsplash.com/photo-1592323360850-e317605f0526?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80"}'
+    also changed", "image": "http://images.unsplash.com/photo-1592323360850-e317605f0526?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80"}'
     \
     http://localhost:5000/posts/post_id
 

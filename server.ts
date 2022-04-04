@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv/config";
-import PostsRoutes from "./Routes/PostRoutes.js";
-import AuthRoutes from "./Routes/AuthRoutes.js";
+import dotenv from "dotenv";
+import PostsRoutes from "./Routes/PostRoutes";
+import AuthRoutes from "./Routes/AuthRoutes";
 import BodyParser from "body-parser";
 import cors from "cors";
 
@@ -12,15 +12,17 @@ const app = express();
 app.use(cors());
 app.use(BodyParser.json());
 
+dotenv.config();
+
 // Routes
 app.use("/posts", PostsRoutes);
 app.use("/users", AuthRoutes);
 
 // DB connection
 mongoose.connect(
-	process.env.MONGO_URI,
-	{ useNewUrlParser: true, useUnifiedTopology: true },
-	() => console.log("Db Connection was Successfull")
+  process.env.MONGO_URI as string,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => console.log("Db Connection was Successfull")
 );
 
 const port = process.env.PORT || 5000;

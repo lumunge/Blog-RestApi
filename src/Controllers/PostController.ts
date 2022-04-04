@@ -1,32 +1,33 @@
 import { Request, Response } from "express";
-import PostModel from "../Models/PostModel.js";
-import { ValidatePosts } from "../validation.js";
-import redis from "redis";
+import PostModel from "../Models/PostModel";
+import { ValidatePosts } from "../validation";
+// import redis, { RedisClientType } from "redis";
 
 // redis config
-const redisClient = redis.createClient();
-const EXPIRATION = 3600; // 1hr
+// const redisClient: RedisClientType = redis.createClient();
+// const EXPIRATION: number = 3600; // 1hr
 
-const getSetCache = (key, callback) => {
-  return new Promise((resolve, reject) => {
-    redisClient.get(key, async (error, data) => {
-      if (error) return reject(error);
-      if (data != null) return resolve(JSON.parse(data));
-      const fetchedData = await callback();
-      redisClient.SETEX(key, EXPIRATION, JSON.stringify(fetchedData));
-      resolve(fetchedData);
-    });
-  });
-};
+// const getSetCache = (key, callback) => {
+//   return new Promise((resolve, reject) => {
+//     redisClient.get(key, async (error, data) => {
+//       if (error) return reject(error);
+//       if (data != null) return resolve(JSON.parse(data));
+//       const fetchedData = await callback();
+//       redisClient.SETEX(key, EXPIRATION, JSON.stringify(fetchedData));
+//       resolve(fetchedData);
+//     });
+//   });
+// };
 
 // get all posts by all users
 export const getPosts = async (req: Request, res: Response) => {
   try {
-    const posts = await getSetCache("posts", async () => {
-      const data = await PostModel.find();
-      return data;
-    });
-    res.status(200).json(posts);
+    // const posts = await getSetCache("posts", async () => {
+    const data = await PostModel.find();
+    // return data;
+    // });
+    // res.status(200).json(posts);
+    res.status(200).json(data);
   } catch (error) {
     res.json({ message: error });
   }
@@ -35,11 +36,12 @@ export const getPosts = async (req: Request, res: Response) => {
 //get single post, all users
 export const getPost = async (req: Request, res: Response) => {
   try {
-    const post = await getSetCache(`post=${req.params.id}`, async () => {
-      const data = await PostModel.findById(req.params.id);
-      return data;
-    });
-    res.status(200).json(post);
+    // const post = await getSetCache(`post=${req.params.id}`, async () => {
+    const data = await PostModel.findById(req.params.id);
+    // return data;
+    // });
+    // res.status(200).json(post);
+    res.status(200).json(data);
   } catch (error) {
     res.json({ message: error });
   }

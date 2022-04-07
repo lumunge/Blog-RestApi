@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface UserDocument extends mongoose.Document {
+export interface PostDocument extends mongoose.Document {
   title: string;
   description: string;
   image: string;
@@ -26,6 +26,6 @@ const PostSchema = new mongoose.Schema(
   }
 );
 
-const PostModel = mongoose.model<UserDocument>("Posts", PostSchema);
+const PostModel = mongoose.model<PostDocument>("Posts", PostSchema);
 
 export default PostModel;
